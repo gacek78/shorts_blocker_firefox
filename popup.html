@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Shorts Blocker</title>
+    <style>
+        :root {
+            --primary: #ff0000;
+            --bg: #0f0f0f;
+            --text: #ffffff;
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            width: 300px;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .logo {
+            width: 32px;
+            height: 32px;
+            background-color: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        h1 {
+            font-size: 18px;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .status-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .status-label {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        #status {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        /* Toggle Switch */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #333;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: var(--primary);
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(24px);
+        }
+
+        .footer {
+            margin-top: 24px;
+            font-size: 11px;
+            opacity: 0.5;
+            text-align: center;
+        }
+
+        .setting-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .desc {
+            font-size: 11px;
+            opacity: 0.6;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img src="icon.png" alt="Logo" class="logo">
+        <h1>Shorts Blocker</h1>
+    </div>
+
+    <div class="card" style="flex-direction: column; gap: 16px;">
+        <div class="setting-row">
+            <div class="status-container">
+                <span class="status-label">Ukryj sidebar</span>
+                <span class="desc">Zakładka Shorts w menu</span>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="hide-sidebar" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="setting-row">
+            <div class="status-container">
+                <span class="status-label">Blokuj główną</span>
+                <span class="desc">Sekcje Shorts na stronie</span>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="block-grid" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="setting-row">
+            <div class="status-container">
+                <span class="status-label">Przekieruj /shorts/</span>
+                <span class="desc">Otwieraj jako zwykłe wideo</span>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="redirect-shorts" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <div class="footer">
+        Wersja 1.0.0
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>

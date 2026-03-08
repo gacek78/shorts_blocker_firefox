@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Shorts Blocker",
+  "version": "1.1.0",
+  "description": "Blocks YouTube Shorts everywhere",
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "128": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.youtube.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "host_permissions": [
+    "*://www.youtube.com/*"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "youtube-shorts-blocker@gacek.project"
+    }
+  }
+}
