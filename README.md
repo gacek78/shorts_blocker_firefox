@@ -1,1 +1,0 @@
-# shorts_blocker_firefox
